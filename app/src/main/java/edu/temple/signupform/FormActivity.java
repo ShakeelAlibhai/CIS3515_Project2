@@ -22,6 +22,9 @@ public class FormActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                EditText nameText = findViewById(R.id.nameField);
+                String name = nameText.getText().toString();
+
                 EditText emailText = findViewById(R.id.emailField);
                 String email = emailText.getText().toString();
 
@@ -31,12 +34,13 @@ public class FormActivity extends AppCompatActivity {
                 EditText confirmText = findViewById(R.id.confirmField);
                 String confirm = confirmText.getText().toString();
 
-                if(email.equals("") || password.equals("") || confirm.equals("")) {
+                if(name.equals("") || email.equals("") || password.equals("") || confirm.equals("")) {
                     Toast.makeText(FormActivity.this, "Must fill in all fields", Toast.LENGTH_LONG).show();
                 } else if(!password.equals(confirm)) {
                     Toast.makeText(FormActivity.this, "Error: Passwords do not match", Toast.LENGTH_LONG).show();
                 } else {
-//                    Toast.makeText(FormActivity.this, "")
+                    String display = "Welcome, " + name + ", to the SignUpForm App";
+                    Toast.makeText(FormActivity.this, display, Toast.LENGTH_LONG).show();
                 }
             }
         });
